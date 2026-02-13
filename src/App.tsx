@@ -6,7 +6,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<PrototypePage />} />
         <Route path="/components" element={<ComponentsPage />} />
         <Route path="/prototype" element={<PrototypePage />} />
       </Routes>
