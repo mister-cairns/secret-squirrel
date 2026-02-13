@@ -11,9 +11,11 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
   type ChartConfig,
 } from "@/components/ui/chart"
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { SparklesIcon } from "lucide-react"
 
 const revenueData = [
@@ -34,11 +36,11 @@ const revenueData = [
 const chartConfig = {
   revenue: {
     label: "Revenue",
-    color: "var(--color-chart-1)",
+    color: "var(--color-chart-4)",
   },
   expenses: {
     label: "Expenses",
-    color: "var(--color-chart-3)",
+    color: "var(--color-chart-1)",
   },
 } satisfies ChartConfig
 
@@ -63,36 +65,10 @@ export function RevenueChart({ onExplainData }: RevenueChartProps) {
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[280px] w-full">
-          <AreaChart
+          <BarChart
             data={revenueData}
             margin={{ top: 4, right: 4, bottom: 0, left: 0 }}
           >
-            <defs>
-              <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-revenue)"
-                  stopOpacity={0.3}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-revenue)"
-                  stopOpacity={0.02}
-                />
-              </linearGradient>
-              <linearGradient id="fillExpenses" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-expenses)"
-                  stopOpacity={0.3}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-expenses)"
-                  stopOpacity={0.02}
-                />
-              </linearGradient>
-            </defs>
             <CartesianGrid vertical={false} strokeDasharray="3 3" />
             <XAxis
               dataKey="month"
@@ -118,23 +94,18 @@ export function RevenueChart({ onExplainData }: RevenueChartProps) {
                 />
               }
             />
-            <Area
-              dataKey="expenses"
-              type="monotone"
-              fill="url(#fillExpenses)"
-              stroke="var(--color-expenses)"
-              strokeWidth={2}
-              stackId="a"
-            />
-            <Area
+            <ChartLegend content={<ChartLegendContent />} />
+            <Bar
               dataKey="revenue"
-              type="monotone"
-              fill="url(#fillRevenue)"
-              stroke="var(--color-revenue)"
-              strokeWidth={2}
-              stackId="b"
+              fill="var(--color-revenue)"
+              radius={[4, 4, 0, 0]}
             />
-          </AreaChart>
+            <Bar
+              dataKey="expenses"
+              fill="var(--color-expenses)"
+              radius={[4, 4, 0, 0]}
+            />
+          </BarChart>
         </ChartContainer>
       </CardContent>
     </Card>

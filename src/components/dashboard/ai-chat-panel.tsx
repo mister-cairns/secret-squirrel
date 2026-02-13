@@ -5,14 +5,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
+  SheetFooter,
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { SendIcon, SparklesIcon, UserIcon } from "lucide-react"
-import { revenueData } from "./revenue-chart"
 
 interface Message {
   id: string
@@ -55,18 +53,11 @@ export function AiChatPanel({ open, onOpenChange }: AiChatPanelProps) {
   ])
   const [inputValue, setInputValue] = React.useState("")
   const [isTyping, setIsTyping] = React.useState(false)
-  const scrollRef = React.useRef<HTMLDivElement>(null)
+  const messagesEndRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
-    if (scrollRef.current) {
-      const viewport = scrollRef.current.querySelector(
-        '[data-slot="scroll-area-viewport"]'
-      )
-      if (viewport) {
-        viewport.scrollTop = viewport.scrollHeight
-      }
-    }
-  }, [messages])
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages, isTyping])
 
   const handleSend = () => {
     if (!inputValue.trim()) return
@@ -143,11 +134,8 @@ Would you like me to drill into any specific time period or metric?`
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent
-        side="right"
-        className="flex flex-col gap-0 p-0 sm:max-w-md"
-      >
-        <SheetHeader className="border-b px-5 py-4">
+      <SheetContent side="right">
+        <SheetHeader>
           <div className="flex items-center gap-2">
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary">
               <SparklesIcon className="size-4 text-primary-foreground" />
@@ -161,70 +149,67 @@ Would you like me to drill into any specific time period or metric?`
           </div>
         </SheetHeader>
 
-        <ScrollArea className="flex-1 overflow-hidden" ref={scrollRef}>
-          <div className="flex flex-col gap-4 px-5 py-4">
-            {messages.map((message) => (
-              <div key={message.id} className="flex gap-3">
-                <Avatar size="sm" className="mt-0.5 shrink-0">
-                  <AvatarFallback>
-                    {message.role === "assistant" ? (
-                      <SparklesIcon className="size-3" />
-                    ) : (
-                      <UserIcon className="size-3" />
-                    )}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col gap-1 min-w-0">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {message.role === "assistant" ? "AI Analyst" : "You"}
-                  </span>
-                  <div className="text-sm text-foreground leading-relaxed whitespace-pre-line">
-                    {message.content.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
-                      if (part.startsWith("**") && part.endsWith("**")) {
-                        return (
-                          <strong key={i}>
-                            {part.slice(2, -2)}
-                          </strong>
-                        )
-                      }
-                      return <span key={i}>{part}</span>
-                    })}
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {isTyping && (
-              <div className="flex gap-3">
-                <Avatar size="sm" className="mt-0.5 shrink-0">
-                  <AvatarFallback>
+        <div className="flex flex-col gap-4 p-4">
+          {messages.map((message) => (
+            <div key={message.id} className="flex gap-3">
+              <Avatar size="sm" className="mt-0.5 shrink-0">
+                <AvatarFallback>
+                  {message.role === "assistant" ? (
                     <SparklesIcon className="size-3" />
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-muted-foreground">
-                    AI Analyst
-                  </span>
-                  <div className="flex items-center gap-1 py-2">
-                    <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground" />
-                    <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground [animation-delay:150ms]" />
-                    <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground [animation-delay:300ms]" />
-                  </div>
+                  ) : (
+                    <UserIcon className="size-3" />
+                  )}
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex min-w-0 flex-col gap-1">
+                <span className="text-xs font-medium text-muted-foreground">
+                  {message.role === "assistant" ? "AI Analyst" : "You"}
+                </span>
+                <div className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+                  {message.content.split(/(\*\*[^*]+\*\*)/).map((part, i) => {
+                    if (part.startsWith("**") && part.endsWith("**")) {
+                      return (
+                        <strong key={i}>
+                          {part.slice(2, -2)}
+                        </strong>
+                      )
+                    }
+                    return <span key={i}>{part}</span>
+                  })}
                 </div>
               </div>
-            )}
-          </div>
-        </ScrollArea>
+            </div>
+          ))}
 
-        <Separator />
+          {isTyping && (
+            <div className="flex gap-3">
+              <Avatar size="sm" className="mt-0.5 shrink-0">
+                <AvatarFallback>
+                  <SparklesIcon className="size-3" />
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col gap-1">
+                <span className="text-xs font-medium text-muted-foreground">
+                  AI Analyst
+                </span>
+                <div className="flex items-center gap-1 py-2">
+                  <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground" />
+                  <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground [animation-delay:150ms]" />
+                  <span className="size-1.5 animate-pulse rounded-full bg-muted-foreground [animation-delay:300ms]" />
+                </div>
+              </div>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
 
-        <div className="px-5 py-4">
+        <SheetFooter>
           <form
             onSubmit={(e) => {
               e.preventDefault()
               handleSend()
             }}
-            className="flex items-center gap-2"
+            className="flex w-full items-center gap-2"
           >
             <Input
               placeholder="Ask about this data..."
@@ -241,10 +226,10 @@ Would you like me to drill into any specific time period or metric?`
               <span className="sr-only">Send message</span>
             </Button>
           </form>
-          <p className="mt-2 text-center text-xs text-muted-foreground">
+          <p className="text-center text-xs text-muted-foreground">
             AI responses are generated for demonstration purposes
           </p>
-        </div>
+        </SheetFooter>
       </SheetContent>
     </Sheet>
   )

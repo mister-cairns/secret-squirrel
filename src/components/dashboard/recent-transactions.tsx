@@ -128,7 +128,7 @@ export function RecentTransactions() {
                 <TableCell
                   className={`text-right font-medium tabular-nums ${
                     txn.type === "credit"
-                      ? "text-emerald-500"
+                      ? "text-primary"
                       : "text-foreground"
                   }`}
                 >

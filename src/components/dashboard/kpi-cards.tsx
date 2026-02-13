@@ -50,7 +50,7 @@ export function KpiCards() {
         <Card key={kpi.title} size="sm">
           <CardContent className="flex items-start justify-between">
             <div className="flex flex-col gap-1">
-              <span className="text-xs text-muted-foreground font-medium">
+              <span className="text-xs font-medium text-muted-foreground">
                 {kpi.title}
               </span>
               <span className="text-2xl font-semibold tracking-tight text-foreground">
@@ -58,14 +58,14 @@ export function KpiCards() {
               </span>
               <div className="flex items-center gap-1">
                 {kpi.trend === "up" ? (
-                  <TrendingUpIcon className="size-3 text-emerald-500" />
+                  <TrendingUpIcon className="size-3 text-primary" />
                 ) : (
                   <TrendingDownIcon className="size-3 text-destructive" />
                 )}
                 <span
                   className={`text-xs font-medium ${
                     kpi.trend === "up"
-                      ? "text-emerald-500"
+                      ? "text-primary"
                       : "text-destructive"
                   }`}
                 >

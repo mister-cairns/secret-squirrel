@@ -13,30 +13,35 @@ const portfolioItems = [
     allocation: "32%",
     value: "$412,800",
     change: "+0.8%",
+    positive: true,
   },
   {
     name: "Fixed Income",
     allocation: "28%",
     value: "$360,200",
     change: "+1.2%",
+    positive: true,
   },
   {
     name: "Equities",
     allocation: "25%",
     value: "$321,600",
     change: "-0.4%",
+    positive: false,
   },
   {
     name: "Real Estate",
     allocation: "10%",
     value: "$128,600",
     change: "+2.1%",
+    positive: true,
   },
   {
     name: "Alternatives",
     allocation: "5%",
     value: "$64,300",
     change: "+0.3%",
+    positive: true,
   },
 ]
 
@@ -80,7 +85,7 @@ export function PortfolioSummary() {
                   <div
                     className={`size-2.5 rounded-full bg-chart-${i + 1}`}
                   />
-                  <span className="text-sm text-foreground font-medium">
+                  <span className="text-sm font-medium text-foreground">
                     {item.name}
                   </span>
                   <span className="text-xs text-muted-foreground">
@@ -93,8 +98,8 @@ export function PortfolioSummary() {
                   </span>
                   <span
                     className={`text-xs font-medium tabular-nums ${
-                      item.change.startsWith("+")
-                        ? "text-emerald-500"
+                      item.positive
+                        ? "text-primary"
                         : "text-destructive"
                     }`}
                   >
