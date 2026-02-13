@@ -73,24 +73,19 @@ All files must be `.tsx` or `.ts` with proper types.
 
 Only `lucide-react` icons (563 available).
 
-### 6. Charts (DEFAULT: Bar Charts)
+## Charts (DEFAULT: Vertical Bar Charts Only)
 
-**Bar charts are the default chart type for all data visualizations.**
+**Vertical bar charts are the ONLY allowed chart type for all data visualizations.**
 
-When a user requests a chart without specifying the type, use a bar chart. If a user specifically requests a different chart type (line, pie, area, etc.), inform them:
+The assistant must generate vertical bar charts exclusively. Do NOT create horizontal bar charts, line charts, pie charts, area charts, or other chart types. If a user requests a different chart type, explain that only vertical bar charts are permitted and offer alternatives such as splitting the data into multiple vertical bar charts, using stacked vertical bars, or prioritizing the top metrics. Proceed with a different chart type only after explicit approval from a designer or product owner.
 
-"Our design system uses bar charts as the default for consistency. I can create a [requested type] chart if you prefer—would you like me to proceed with that, or would a bar chart work for your needs?"
+Allowed chart type:
 
-Available chart types (use BarChart unless specifically requested otherwise):
+- `BarChart` (vertical only — required orientation)
 
-- `BarChart` (default)
-- `LineChart` (request only)
-- `PieChart` (request only)
-- `AreaChart` (request only)
+**Grouped Vertical Bar Charts: Maximum 2 Values Per Group**
 
-**Grouped Bar Charts: Maximum 2 Values Per Group**
-
-When creating grouped bar charts (multiple bars per category), limit to a maximum of **2 values per group**. This ensures readability and visual clarity.
+When creating grouped vertical bar charts (multiple vertical bars per category), limit to a maximum of **2 values per group**. This ensures readability and visual clarity.
 
 Example of correct grouped data structure:
 
@@ -109,15 +104,15 @@ const chartConfig = {
 If a user requests more than 2 values per group, suggest alternatives:
 
 - Split into multiple charts
-- Use a stacked bar chart instead
+- Use a stacked vertical bar chart instead
 - Prioritize the two most important metrics
 
-**Stacked Bar Charts: Radius on Top Bar Only**
+**Stacked Vertical Bar Charts: Radius on Top Bar Only**
 
-When creating stacked bar charts, apply the top radius only to the topmost Bar component in the stack. The bottom bar should have no radius to ensure a clean connection between stacked segments.
+When creating stacked vertical bar charts, apply the top radius only to the topmost Bar component in the stack. The bottom bar should have no radius to ensure a clean connection between stacked segments.
 
 ```typescript
-// ✅ CORRECT: Top radius on the topmost bar only
+// ✅ CORRECT: Top radius on the topmost bar only (vertical stacked bars)
 <Bar dataKey="overdue" stackId="a" fill="var(--color-overdue)" radius={[0, 0, 0, 0]} />
 <Bar dataKey="upcoming" stackId="a" fill="var(--color-upcoming)" radius={[4, 4, 0, 0]} />
 ```
