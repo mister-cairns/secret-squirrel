@@ -7,7 +7,7 @@
     "@isaacs/brace-expansion": "5.0.1"
   },
   "scripts": {
-    "dev": "node scripts/setup.mjs && vite",
+    "dev": "vite",
     "setup": "node scripts/setup.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
