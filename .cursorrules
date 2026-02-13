@@ -1,0 +1,412 @@
+# Secret Squirrel - Internal Prototyping Tool Rules
+
+## PROJECT OVERVIEW
+
+This is an internal prototyping tool for PRD research. Prototypes should prioritize design consistency using shadcn/ui components and our established color scheme, with flexibility when needed.
+
+## DESIGN SYSTEM GUIDELINES
+
+### 1. COMPONENT USAGE - PREFERRED
+
+**Prefer components from our shadcn/ui library. Ask before using custom components or external UI libraries.**
+
+Available components are documented in `/COMPONENTS.md`. These should be your first choice for every UI element.
+
+### 1a. COMPONENT STRUCTURE - STRICT
+
+**ALWAYS check `/src/components/component-example.tsx` for correct component patterns before using any component.**
+
+Each component has an established structure that MUST be followed exactly:
+
+| Component | Correct Structure |
+|-----------|-------------------|
+| Sheet | `SheetHeader` → content div with `p-4` → `SheetFooter` |
+| Card | `CardHeader` (with `CardTitle`, `CardDescription`) → `CardContent` → `CardFooter` |
+| Dialog | `DialogHeader` → content → `DialogFooter` |
+| Drawer | `DrawerHeader` → content → `DrawerFooter` |
+| Tabs | `TabsList` with `TabsTrigger` items → `TabsContent` for each tab |
+
+**NEVER do the following:**
+
+- Add ScrollArea inside Sheet, Dialog, or Drawer (they handle overflow natively)
+- Add complex flex/overflow layouts when the component handles it
+- Wrap components in unnecessary containers
+- Override default component behaviors with custom CSS hacks
+
+**Why this matters:** Users of this tool may not be experienced coders. Following the standard structure keeps code simple, predictable, and maintainable.
+
+**When shadcn doesn't have what you need:**
+
+1. Inform the user: "The shadcn library doesn't have a component for [X]."
+2. Ask for approval: "Would you like me to create a custom component for this?"
+3. If approved, build the custom component following our styling conventions.
+
+### 2. COLOR SCHEME - STRICT
+
+**ONLY use the existing CSS variables defined in `/src/index.css`. NEVER modify theme colors or introduce custom colors.**
+
+#### NEVER DO THIS:
+
+- **NEVER modify `/src/index.css`** - Theme colors are locked and must not be changed
+- **NEVER add custom hex colors** (e.g., `#3B82F6`, `#FF69B4`)
+- **NEVER add RGB/RGBA values**
+- **NEVER use named colors** (e.g., `blue`, `red`, `pink`)
+- **NEVER use arbitrary Tailwind colors** (e.g., `bg-blue-500`, `bg-pink-400`)
+- **NEVER change primary, secondary, accent, or any theme color values**
+
+#### Available color classes (USE ONLY THESE):
+
+- `bg-background`, `text-foreground`
+- `bg-primary`, `text-primary-foreground`
+- `bg-secondary`, `text-secondary-foreground`
+- `bg-accent`, `text-accent-foreground`
+- `bg-muted`, `text-muted-foreground`
+- `bg-destructive`, `text-destructive-foreground`
+- `border-border`, `ring-ring`
+- `bg-card`, `text-card-foreground`
+- `bg-popover`, `text-popover-foreground`
+
+#### When users request custom colors:
+
+If a user asks to change colors (e.g., "make it pink", "change the buttons to blue"), you must:
+
+1. **Politely decline** modifying theme colors
+2. **Explain** that the design system uses a fixed color palette for consistency
+3. **Offer alternatives** from the existing theme: primary, secondary, accent, muted, or destructive
+4. **Never proceed** with custom colors even if the user insists - suggest they speak to a designer about theme changes instead
+
+### 3. STYLING GUIDELINES
+
+**Typography:**
+
+- Use Tailwind typography utilities only: `text-sm`, `text-base`, `text-lg`, `text-xl`, etc.
+- Font weight: `font-normal`, `font-medium`, `font-semibold`, `font-bold`
+- Line height: `leading-none`, `leading-tight`, `leading-normal`, etc.
+
+**Spacing:**
+
+- Use Tailwind spacing scale: `p-1` through `p-24`, `m-1` through `m-24`, `gap-1` through `gap-24`
+- NO arbitrary values like `p-[13px]` unless absolutely necessary
+
+**Layout:**
+
+- Prefer flexbox (`flex`, `flex-col`) and grid (`grid`, `grid-cols-*`)
+- Use shadcn layout components: Card, Sheet, Sidebar, Tabs, etc.
+
+**Border Radius:**
+
+- Use design tokens: `rounded-sm`, `rounded`, `rounded-md`, `rounded-lg`, `rounded-xl`
+- These map to our OKLch-based radius system
+
+### 4. IMPORT CONVENTIONS
+
+**Always use the `@` alias for imports:**
+
+```typescript
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+```
+
+**NEVER use relative imports for components:**
+
+```typescript
+// ❌ WRONG
+import { Button } from "../components/ui/button";
+
+// ✅ CORRECT
+import { Button } from "@/components/ui/button";
+```
+
+### 5. CODE QUALITY
+
+**TypeScript:**
+
+- All new files MUST be `.tsx` or `.ts`
+- Always type component props
+- Use TypeScript strict mode conventions
+
+**Component Structure:**
+
+```typescript
+interface ComponentNameProps {
+  // Props with types
+}
+
+export function ComponentName({ prop1, prop2 }: ComponentNameProps) {
+  // Implementation
+}
+```
+
+**Naming:**
+
+- Components: PascalCase (e.g., `UserProfile`, `DataTable`)
+- Files: kebab-case (e.g., `user-profile.tsx`, `data-table.tsx`)
+- Functions/variables: camelCase
+
+### 6. ICONS
+
+**Only use lucide-react icons (563 icons available):**
+
+```typescript
+import { Check, ChevronDown, User } from "lucide-react";
+```
+
+NO other icon libraries (Font Awesome, Heroicons, etc.)
+
+### 7. CHARTS - DEFAULT TO BAR CHARTS
+
+**Bar charts are the default chart type for all data visualizations.**
+
+When creating charts:
+
+1. **No chart type specified** → Use `BarChart`
+2. **Different chart type requested** → Flag the default and confirm:
+   - "Our design system uses bar charts as the default for consistency. I can create a [line/pie/area] chart if you specifically need that—would you like me to proceed, or would a bar chart work?"
+
+**Available chart types:**
+
+| Chart Type | Usage |
+|------------|-------|
+| `BarChart` | Default - use unless told otherwise |
+| `LineChart` | Only when specifically requested |
+| `PieChart` | Only when specifically requested |
+| `AreaChart` | Only when specifically requested |
+
+**Grouped Bar Charts: Maximum 2 Values Per Group**
+
+When creating grouped bar charts (multiple bars per category), limit to a maximum of **2 values per group**. This ensures readability and visual clarity.
+
+```typescript
+// ✅ CORRECT: 2 values per group
+const data = [
+  { month: "Jan", cashIn: 85000, cashOut: 78000 },
+  { month: "Feb", cashIn: 245000, cashOut: 165000 },
+]
+
+const chartConfig = {
+  cashIn: { label: "Cash in", color: "var(--color-chart-4)" },
+  cashOut: { label: "Cash out", color: "var(--color-chart-1)" },
+}
+
+// ❌ INCORRECT: More than 2 values per group
+const data = [
+  { month: "Jan", revenue: 85000, expenses: 78000, profit: 7000 },  // Too many!
+]
+```
+
+**If more than 2 values are needed**, suggest alternatives:
+- Split into multiple charts
+- Use a stacked bar chart instead
+- Prioritize the two most important metrics
+
+**Stacked Bar Charts: Radius on Top Bar Only**
+
+When creating stacked bar charts, apply the top radius only to the topmost Bar component in the stack. The bottom bar should have no radius to ensure a clean connection between stacked segments.
+
+```typescript
+// ✅ CORRECT: Top radius on the topmost bar only
+<Bar dataKey="overdue" stackId="a" fill="var(--color-overdue)" radius={[0, 0, 0, 0]} />
+<Bar dataKey="upcoming" stackId="a" fill="var(--color-upcoming)" radius={[4, 4, 0, 0]} />
+```
+
+Note: When the topmost bar has a value of 0, the rounded corners won't appear on that column. This is a limitation of the current approach.
+
+**Example of correct handling:**
+
+- User: "Add a chart showing monthly revenue" → Use BarChart (default)
+- User: "Add a line graph showing trends" → Flag: "We default to bar charts for consistency. Would you like me to use a line chart here, or would a bar chart work?"
+- User: "Show revenue, expenses, profit, and taxes in a grouped chart" → Flag: "Grouped charts work best with 2 values per group for readability. Would you like me to split this into multiple charts, or can we prioritize the two most important metrics?"
+
+### 8. STATE MANAGEMENT
+
+- Use React 19 hooks (`useState`, `useEffect`, `useReducer`)
+- For theme toggling, use `next-themes` (already installed)
+- Ask before adding Redux, Zustand, or other state libraries
+
+## PROTOTYPE PAGE STRUCTURE - STRICT
+
+**When a user asks to create/build their prototype, ALL prototype content MUST start in `/src/pages/prototype.tsx`.**
+
+### How it works:
+
+1. **Entry point**: The prototype's first/main page is always `/src/pages/prototype.tsx`, which renders at the `/prototype` route
+2. **Homepage link**: The homepage (`/src/pages/home.tsx`) already links to `/prototype` via the "Demo" card — this is the entry point users click to view their prototype
+3. **Single-page prototypes**: Build everything directly in `prototype.tsx` (and extracted components as needed)
+4. **Multi-page prototypes**: Use `/prototype` as the base route. Add sub-routes nested under it:
+   - `/prototype` → Main prototype page (`prototype.tsx`)
+   - `/prototype/details` → Detail page
+   - `/prototype/settings` → Settings page
+   - etc.
+
+### Adding sub-pages:
+
+When a prototype needs multiple pages:
+
+1. Create new page files in `/src/pages/` with a `prototype-` prefix (e.g., `prototype-details.tsx`, `prototype-settings.tsx`)
+2. Export them from `/src/pages/index.ts`
+3. Add nested routes under `/prototype` in `/src/App.tsx` using React Router:
+
+```typescript
+// In App.tsx - add sub-routes under /prototype
+<Route path="/prototype" element={<PrototypePage />} />
+<Route path="/prototype/details" element={<PrototypeDetailsPage />} />
+<Route path="/prototype/settings" element={<PrototypeSettingsPage />} />
+```
+
+4. Use `<Link to="/prototype/details">` for navigation between prototype pages
+
+### Key rules:
+
+- **NEVER** build the prototype directly in `home.tsx` — the homepage is for navigation only
+- **NEVER** replace the homepage with prototype content
+- **ALWAYS** use `prototype.tsx` as the starting point for any prototype
+- **ALWAYS** prefix additional prototype page files with `prototype-` for clarity
+- **ALWAYS** nest additional routes under `/prototype/*`
+- The homepage "Demo" card already links to `/prototype` — do not modify this link
+
+## SETUP WIZARD
+
+This project includes an interactive CLI setup wizard that runs on first `pnpm dev`.
+
+**How it works:**
+
+- When `pnpm dev` runs, `scripts/setup.mjs` checks for `.prototype.json` in the project root
+- If the config file is missing, the wizard asks the user for a project name, then updates `index.html` `<title>` and the home page heading
+- If the config file exists, setup is skipped (zero overhead)
+- The config can be re-run any time with `pnpm run setup`
+
+**`.prototype.json` format:**
+
+```json
+{
+  "name": "My Prototype"
+}
+```
+
+**Rules for AI assistants:**
+
+- Reference `.prototype.json` to understand the user's project name
+- If a user wants to rename their project, suggest running `pnpm run setup` after deleting `.prototype.json`
+- Do NOT manually edit `.prototype.json` — let the setup wizard manage it
+- `.prototype.json` is gitignored and should not be committed
+
+## NON-CODER FRIENDLY PROMPTING
+
+When creating prototypes, users should describe what they want in plain language:
+
+**Good prompts:**
+
+- "Create a user profile card with name, email, and avatar"
+- "Make a data table with pagination showing customer orders"
+- "Build a settings page with tabs for account, privacy, and notifications"
+- "Add a modal dialog for confirming deletions"
+
+**The AI will automatically:**
+
+- Choose appropriate shadcn components
+- Apply correct color scheme
+- Follow all styling rules
+- Use proper TypeScript types
+
+## EXAMPLES
+
+### ✅ CORRECT: Using shadcn components and color variables
+
+```typescript
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+
+export function UserCard() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>User Profile</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Button variant="default">Edit Profile</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+### ❌ INCORRECT: Custom styling and colors
+
+```typescript
+// DON'T DO THIS
+export function UserCard() {
+  return (
+    <div style={{ backgroundColor: "#3B82F6", padding: "20px" }}>
+      <h2 className="text-blue-600">User Profile</h2>
+      <button className="bg-[#10B981] hover:bg-[#059669]">Edit Profile</button>
+    </div>
+  );
+}
+```
+
+### ✅ CORRECT: Following Sheet component structure
+
+```typescript
+<Sheet>
+  <SheetTrigger render={<Button />}>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Title</SheetTitle>
+      <SheetDescription>Description</SheetDescription>
+    </SheetHeader>
+    <div className="p-4">
+      {/* Content goes here with simple p-4 padding */}
+    </div>
+    <SheetFooter>
+      <Button>Action</Button>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>
+```
+
+### ❌ INCORRECT: Adding unnecessary complexity to Sheet
+
+```typescript
+// DON'T DO THIS - overcomplicating the Sheet structure
+<SheetContent className="overflow-hidden">
+  <div className="flex h-[calc(100vh-180px)] flex-col">
+    <ScrollArea className="flex-1">  {/* Unnecessary - Sheet handles overflow */}
+      <div className="space-y-4">...</div>
+    </ScrollArea>
+  </div>
+</SheetContent>
+```
+
+## WORKFLOW FOR AI ASSISTANTS
+
+When a user requests a prototype:
+
+1. **Identify requirements** from the user's description
+2. **Select appropriate shadcn components** from `/COMPONENTS.md`
+3. **Check component examples** in `/src/components/component-example.tsx` for correct structure
+4. **Follow the established pattern exactly** - do not add unnecessary wrappers or complexity
+5. **Structure the layout** using Card, Tabs, Sheet, or Sidebar as needed
+6. **Apply semantic color classes** only (no custom colors)
+7. **Use TypeScript** with proper types
+8. **Import with `@` alias**
+9. **Show the user the result** and iterate based on feedback
+
+## MAINTENANCE
+
+Before making any changes:
+
+- Read existing component code to understand patterns
+- Maintain consistency with existing implementations
+- Ask for clarification if requirements are unclear
+
+## REFERENCE DOCUMENTATION
+
+- Component inventory: `/COMPONENTS.md`
+- Theme configuration: `/src/index.css`
+- Example components: `/src/components/component-example.tsx`
+- Utility functions: `/src/lib/utils.ts`
+
+---
+
+**Remember: Consistency is valuable, but user needs come first. Prefer existing patterns and components, but ask before deviating rather than refusing.**
