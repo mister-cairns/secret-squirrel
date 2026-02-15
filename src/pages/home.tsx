@@ -18,11 +18,10 @@ export function HomePage() {
           <span className="text-6xl">🐿️</span>
         </div>
         <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          Mike's prototype
+          Secret Squirrel
         </h1>
         <p className="text-muted-foreground mb-8 text-lg">
-          Internal prototyping tool for PRD research. Build beautiful prototypes
-          with our design system.
+          Prototyping starting point for PRD research.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
