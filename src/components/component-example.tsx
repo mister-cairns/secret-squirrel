@@ -248,12 +248,11 @@ import {
   XIcon,
 } from "lucide-react"
 
-import { DarkModeToggle } from "@/components/dark-mode-toggle"
+
 
 export function ComponentExample() {
   return (
     <ExampleWrapper>
-      <DarkModeToggle />
 
       {/* Section 1: Cards & Containers */}
       <CardExample />

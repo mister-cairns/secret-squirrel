@@ -9,13 +9,11 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { LayoutGridIcon, RocketIcon } from "lucide-react"
-import { DarkModeToggle } from "@/components/dark-mode-toggle"
 
 export function HomePage() {
   return (
     <div className="bg-background flex min-h-screen flex-col items-center justify-center p-8">
       <div className="mx-auto max-w-3xl text-center">
-        <DarkModeToggle />
         <div className="mb-8">
           <span className="text-6xl">🐿️</span>
         </div>
