@@ -6,6 +6,17 @@ This is an internal prototyping tool with **design system preferences**. Users m
 
 Help users build prototypes prioritizing our pre-approved shadcn/ui components and color scheme. Maintain consistency while being flexible when needed.
 
+## First Run Setup
+
+Before starting any work, check if `.prototype.json` exists. If it does NOT, 
+ask the user the following questions using AskUserQuestions:
+
+1. What is the prototype called? (default: "Secret Squirrel")
+2. Does the prototype need a header? (yes/no)
+3. If yes, what header text? (default: the prototype name)
+
+Then generate `.prototype.json` and `src/lib/prototype.ts` with their answers.
+
 ## CORE GUIDELINES
 
 ### 1. Component Library (PREFERRED)
@@ -133,16 +144,6 @@ Note: When the topmost bar has a value of 0, the rounded corners won't appear on
   - Navigate between pages with `<Link to="/prototype/details">`
 
 **NEVER** build prototype content in `home.tsx`. **NEVER** replace the homepage. **ALWAYS** start in `prototype.tsx`.
-
-## Setup Wizard
-
-This project includes an interactive CLI setup wizard that runs on first `pnpm dev`.
-
-- On first run, `scripts/setup.mjs` asks for a project name, then updates `index.html` `<title>` and the home page heading
-- Config is saved to `.prototype.json` (gitignored). If it exists, setup is skipped automatically
-- Re-run with `pnpm run setup` after deleting `.prototype.json`
-- Reference `.prototype.json` to understand the user's project name
-- Do NOT manually edit `.prototype.json` — let the setup wizard manage it
 
 ## Working with Non-Technical Users
 
