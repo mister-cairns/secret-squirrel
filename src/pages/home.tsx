@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { LayoutGridIcon, RocketIcon } from "lucide-react"
+import { PROTOTYPE_NAME } from "@/lib/prototype"
 
 export function HomePage() {
   return (
@@ -17,9 +18,7 @@ export function HomePage() {
         <div className="mb-8">
           <span className="text-6xl">🐿️</span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          Secret Squirrel
-        </h1>
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">{PROTOTYPE_NAME}</h1>
         <p className="text-muted-foreground mb-8 text-lg">
           Prototyping starting point for PRD research.
         </p>
