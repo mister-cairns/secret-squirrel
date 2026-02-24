@@ -1,18 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import {
-  Example,
-  ExampleWrapper,
-} from "@/components/example"
+import { Example, ExampleWrapper } from "@/components/example";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+} from "@/components/ui/accordion";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -24,14 +21,14 @@ import {
   AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
 import {
   Avatar,
   AvatarFallback,
   AvatarGroup,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+} from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -39,9 +36,9 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
+} from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Card,
   CardAction,
@@ -50,13 +47,13 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
+} from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {
   Combobox,
   ComboboxContent,
@@ -64,8 +61,8 @@ import {
   ComboboxInput,
   ComboboxItem,
   ComboboxList,
-} from "@/components/ui/combobox"
-import { DatePicker } from "@/components/ui/date-picker"
+} from "@/components/ui/combobox";
+import { DatePicker } from "@/components/ui/date-picker";
 import {
   Dialog,
   DialogContent,
@@ -74,7 +71,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -84,7 +81,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
+} from "@/components/ui/drawer";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -101,21 +98,21 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
+} from "@/components/ui/dropdown-menu";
+import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/components/ui/hover-card"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/hover-card";
+import { Input } from "@/components/ui/input";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/input-otp";
+import { Label } from "@/components/ui/label";
 import {
   Pagination,
   PaginationContent,
@@ -124,7 +121,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination"
+} from "@/components/ui/pagination";
 import {
   Popover,
   PopoverContent,
@@ -132,10 +129,10 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { Progress } from "@/components/ui/progress"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { ScrollArea } from "@/components/ui/scroll-area"
+} from "@/components/ui/popover";
+import { Progress } from "@/components/ui/progress";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -143,8 +140,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -153,10 +150,10 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
+} from "@/components/ui/sheet";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 import {
   Table,
   TableBody,
@@ -165,16 +162,16 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Textarea } from "@/components/ui/textarea"
-import { Toggle } from "@/components/ui/toggle"
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+} from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { Toggle } from "@/components/ui/toggle";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 import {
   DataTable,
   DataTableColumnHeader,
@@ -184,7 +181,7 @@ import {
   type ColumnDef,
   type FacetedFilterOption,
   type RowAction,
-} from "@/components/data-table"
+} from "@/components/data-table";
 import {
   ChartContainer,
   ChartTooltip,
@@ -192,15 +189,9 @@ import {
   ChartLegend,
   ChartLegendContent,
   type ChartConfig,
-} from "@/components/ui/chart"
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  XAxis,
-  YAxis,
-} from "recharts"
-import type { Table as TanstackTable } from "@tanstack/react-table"
+} from "@/components/ui/chart";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import type { Table as TanstackTable } from "@tanstack/react-table";
 import {
   AlertCircleIcon,
   ArrowDownIcon,
@@ -246,14 +237,11 @@ import {
   UnderlineIcon,
   UserIcon,
   XIcon,
-} from "lucide-react"
-
-
+} from "lucide-react";
 
 export function ComponentExample() {
   return (
     <ExampleWrapper>
-
       {/* Section 1: Cards & Containers */}
       <CardExample />
       <FormExample />
@@ -304,7 +292,7 @@ export function ComponentExample() {
       {/* Section 10: Date & Calendar */}
       <CalendarExample />
     </ExampleWrapper>
-  )
+  );
 }
 
 // =============================================================================
@@ -359,7 +347,7 @@ function CardExample() {
         </CardFooter>
       </Card>
     </Example>
-  )
+  );
 }
 
 const frameworks = [
@@ -368,22 +356,22 @@ const frameworks = [
   "Nuxt.js",
   "Remix",
   "Astro",
-] as const
+] as const;
 
 const roleItems = [
   { label: "Developer", value: "developer" },
   { label: "Designer", value: "designer" },
   { label: "Manager", value: "manager" },
   { label: "Other", value: "other" },
-]
+];
 
 function FormExample() {
   const [notifications, setNotifications] = React.useState({
     email: true,
     sms: false,
     push: true,
-  })
-  const [theme, setTheme] = React.useState("light")
+  });
+  const [theme, setTheme] = React.useState("light");
 
   return (
     <Example title="Form">
@@ -475,7 +463,7 @@ function FormExample() {
                   <DropdownMenuLabel>View</DropdownMenuLabel>
                   <DropdownMenuCheckboxItem
                     checked={notifications.email}
-                    onCheckedChange={(checked) =>
+                    onCheckedChange={(checked: boolean) =>
                       setNotifications({
                         ...notifications,
                         email: checked === true,
@@ -487,7 +475,7 @@ function FormExample() {
                   </DropdownMenuCheckboxItem>
                   <DropdownMenuCheckboxItem
                     checked={notifications.sms}
-                    onCheckedChange={(checked) =>
+                    onCheckedChange={(checked: boolean) =>
                       setNotifications({
                         ...notifications,
                         sms: checked === true,
@@ -570,7 +558,7 @@ function FormExample() {
                                   </DropdownMenuLabel>
                                   <DropdownMenuCheckboxItem
                                     checked={notifications.push}
-                                    onCheckedChange={(checked) =>
+                                    onCheckedChange={(checked: boolean) =>
                                       setNotifications({
                                         ...notifications,
                                         push: checked === true,
@@ -582,7 +570,7 @@ function FormExample() {
                                   </DropdownMenuCheckboxItem>
                                   <DropdownMenuCheckboxItem
                                     checked={notifications.email}
-                                    onCheckedChange={(checked) =>
+                                    onCheckedChange={(checked: boolean) =>
                                       setNotifications({
                                         ...notifications,
                                         email: checked === true,
@@ -674,7 +662,7 @@ function FormExample() {
                   <ComboboxContent>
                     <ComboboxEmpty>No frameworks found.</ComboboxEmpty>
                     <ComboboxList>
-                      {(item) => (
+                      {(item: string) => (
                         <ComboboxItem key={item} value={item}>
                           {item}
                         </ComboboxItem>
@@ -701,7 +689,7 @@ function FormExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -709,12 +697,27 @@ function FormExample() {
 // =============================================================================
 
 const invoices = [
-  { invoice: "INV001", status: "Paid", method: "Credit Card", amount: "$250.00" },
+  {
+    invoice: "INV001",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$250.00",
+  },
   { invoice: "INV002", status: "Pending", method: "PayPal", amount: "$150.00" },
-  { invoice: "INV003", status: "Unpaid", method: "Bank Transfer", amount: "$350.00" },
-  { invoice: "INV004", status: "Paid", method: "Credit Card", amount: "$450.00" },
+  {
+    invoice: "INV003",
+    status: "Unpaid",
+    method: "Bank Transfer",
+    amount: "$350.00",
+  },
+  {
+    invoice: "INV004",
+    status: "Paid",
+    method: "Credit Card",
+    amount: "$450.00",
+  },
   { invoice: "INV005", status: "Paid", method: "PayPal", amount: "$550.00" },
-]
+];
 
 function TableExample() {
   return (
@@ -738,7 +741,9 @@ function TableExample() {
             <TableBody>
               {invoices.map((invoice) => (
                 <TableRow key={invoice.invoice}>
-                  <TableCell className="font-medium">{invoice.invoice}</TableCell>
+                  <TableCell className="font-medium">
+                    {invoice.invoice}
+                  </TableCell>
                   <TableCell>
                     <Badge
                       variant={
@@ -761,7 +766,7 @@ function TableExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -769,11 +774,11 @@ function TableExample() {
 // =============================================================================
 
 interface Task {
-  id: string
-  title: string
-  status: "backlog" | "todo" | "in-progress" | "done" | "canceled"
-  priority: "low" | "medium" | "high"
-  label: "bug" | "feature" | "documentation"
+  id: string;
+  title: string;
+  status: "backlog" | "todo" | "in-progress" | "done" | "canceled";
+  priority: "low" | "medium" | "high";
+  label: "bug" | "feature" | "documentation";
 }
 
 const taskStatuses: FacetedFilterOption[] = [
@@ -782,32 +787,225 @@ const taskStatuses: FacetedFilterOption[] = [
   { value: "in-progress", label: "In Progress", icon: CircleDotIcon },
   { value: "done", label: "Done", icon: CheckCircleIcon },
   { value: "canceled", label: "Canceled", icon: CircleOffIcon },
-]
+];
 
 const taskPriorities: FacetedFilterOption[] = [
   { value: "low", label: "Low", icon: ArrowDownIcon },
   { value: "medium", label: "Medium", icon: ArrowRightIcon },
   { value: "high", label: "High", icon: ArrowUpIcon },
-]
+];
 
 const taskLabels: FacetedFilterOption[] = [
   { value: "bug", label: "Bug" },
   { value: "feature", label: "Feature" },
   { value: "documentation", label: "Documentation" },
-]
+];
 
 const sampleTasks: Task[] = [
-  { id: "TASK-8782", title: "Compress the program without quantifying the SSD", status: "in-progress", priority: "medium", label: "documentation" },
-  { id: "TASK-7878", title: "Calculate the EXE feed to index the pixel", status: "backlog", priority: "medium", label: "documentation" },
-  { id: "TASK-7839", title: "Bypass the neural TCP card for optimization", status: "todo", priority: "high", label: "bug" },
-  { id: "TASK-5562", title: "The SAS interface is down, bypass the sensor", status: "backlog", priority: "medium", label: "feature" },
-  { id: "TASK-8686", title: "Parse the wireless SSL protocol for the API", status: "canceled", priority: "medium", label: "feature" },
-  { id: "TASK-1280", title: "Use the digital TLS panel to transmit data", status: "done", priority: "high", label: "bug" },
-  { id: "TASK-7262", title: "The UTF8 application needs neural bandwidth", status: "done", priority: "high", label: "feature" },
-  { id: "TASK-1138", title: "Quantify the 1080p driver for performance", status: "in-progress", priority: "medium", label: "feature" },
-  { id: "TASK-7184", title: "Program the back-end THX pixel system", status: "todo", priority: "low", label: "feature" },
-  { id: "TASK-5160", title: "Navigate the back-end bus calculation", status: "in-progress", priority: "high", label: "documentation" },
-]
+  {
+    id: "TASK-8782",
+    title: "Compress the program without quantifying the SSD",
+    status: "in-progress",
+    priority: "medium",
+    label: "documentation",
+  },
+  {
+    id: "TASK-7878",
+    title: "Calculate the EXE feed to index the pixel",
+    status: "backlog",
+    priority: "medium",
+    label: "documentation",
+  },
+  {
+    id: "TASK-7839",
+    title: "Bypass the neural TCP card for optimization",
+    status: "todo",
+    priority: "high",
+    label: "bug",
+  },
+  {
+    id: "TASK-5562",
+    title: "The SAS interface is down, bypass the sensor",
+    status: "backlog",
+    priority: "medium",
+    label: "feature",
+  },
+  {
+    id: "TASK-8686",
+    title: "Parse the wireless SSL protocol for the API",
+    status: "canceled",
+    priority: "medium",
+    label: "feature",
+  },
+  {
+    id: "TASK-1280",
+    title: "Use the digital TLS panel to transmit data",
+    status: "done",
+    priority: "high",
+    label: "bug",
+  },
+  {
+    id: "TASK-7262",
+    title: "The UTF8 application needs neural bandwidth",
+    status: "done",
+    priority: "high",
+    label: "feature",
+  },
+  {
+    id: "TASK-1138",
+    title: "Quantify the 1080p driver for performance",
+    status: "in-progress",
+    priority: "medium",
+    label: "feature",
+  },
+  {
+    id: "TASK-7184",
+    title: "Program the back-end THX pixel system",
+    status: "todo",
+    priority: "low",
+    label: "feature",
+  },
+  {
+    id: "TASK-5160",
+    title: "Navigate the back-end bus calculation",
+    status: "in-progress",
+    priority: "high",
+    label: "documentation",
+  },
+  {
+    id: "TASK-4521",
+    title: "Optimize the cloud-based firewall protocol",
+    status: "todo",
+    priority: "high",
+    label: "feature",
+  },
+  {
+    id: "TASK-3847",
+    title: "Quantify the 4K BIOS application transmission",
+    status: "in-progress",
+    priority: "medium",
+    label: "bug",
+  },
+  {
+    id: "TASK-9201",
+    title: "Parse the virtual COM interface indexing",
+    status: "backlog",
+    priority: "low",
+    label: "documentation",
+  },
+  {
+    id: "TASK-6543",
+    title: "Bypass the XML feed bootstrap protocol",
+    status: "done",
+    priority: "high",
+    label: "feature",
+  },
+  {
+    id: "TASK-2789",
+    title: "Synthesize the multi-byte PCI bus",
+    status: "canceled",
+    priority: "medium",
+    label: "bug",
+  },
+  {
+    id: "TASK-7654",
+    title: "Override the neural bandwidth sensor",
+    status: "in-progress",
+    priority: "low",
+    label: "feature",
+  },
+  {
+    id: "TASK-5432",
+    title: "Parse the digital TCP panel interface",
+    status: "backlog",
+    priority: "medium",
+    label: "documentation",
+  },
+  {
+    id: "TASK-8901",
+    title: "Transmit the optical JSON protocol gateway",
+    status: "todo",
+    priority: "high",
+    label: "bug",
+  },
+  {
+    id: "TASK-3211",
+    title: "Execute the virtual bus with HTML panel",
+    status: "done",
+    priority: "medium",
+    label: "feature",
+  },
+  {
+    id: "TASK-6789",
+    title: "Implement the back-end SSL encryption",
+    status: "in-progress",
+    priority: "high",
+    label: "documentation",
+  },
+  {
+    id: "TASK-4098",
+    title: "Quantify the 8K processor calculation",
+    status: "backlog",
+    priority: "medium",
+    label: "feature",
+  },
+  {
+    id: "TASK-7215",
+    title: "Compress the SAN storage with API gateway",
+    status: "done",
+    priority: "low",
+    label: "bug",
+  },
+  {
+    id: "TASK-5634",
+    title: "Hash the multi-threaded pixel SMTP feed",
+    status: "canceled",
+    priority: "medium",
+    label: "documentation",
+  },
+  {
+    id: "TASK-9876",
+    title: "Bypass the optical USB hub connection",
+    status: "todo",
+    priority: "high",
+    label: "feature",
+  },
+  {
+    id: "TASK-2143",
+    title: "Parse the virtual WAN bandwidth stability",
+    status: "in-progress",
+    priority: "medium",
+    label: "bug",
+  },
+  {
+    id: "TASK-8765",
+    title: "Synthesize the quantum DNS protocol matrix",
+    status: "backlog",
+    priority: "low",
+    label: "documentation",
+  },
+  {
+    id: "TASK-3456",
+    title: "Transmit the multi-byte system via VLAN",
+    status: "done",
+    priority: "high",
+    label: "feature",
+  },
+  {
+    id: "TASK-7012",
+    title: "Override the neural network architecture",
+    status: "in-progress",
+    priority: "medium",
+    label: "bug",
+  },
+  {
+    id: "TASK-4382",
+    title: "Index the online protocol middleware layer",
+    status: "backlog",
+    priority: "high",
+    label: "documentation",
+  },
+];
 
 function createTaskColumns(): ColumnDef<Task>[] {
   return [
@@ -816,17 +1014,19 @@ function createTaskColumns(): ColumnDef<Task>[] {
       header: ({ table }) => (
         <Checkbox
           checked={table.getIsAllPageRowsSelected()}
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          onCheckedChange={(value: boolean) =>
+            table.toggleAllPageRowsSelected(!!value)
+          }
           aria-label="Select all"
-          className="translate-y-[2px]"
+          className="translate-y-0.5"
         />
       ),
       cell: ({ row }) => (
         <Checkbox
           checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          onCheckedChange={(value: boolean) => row.toggleSelected(!!value)}
           aria-label="Select row"
-          className="translate-y-[2px]"
+          className="translate-y-0.5"
         />
       ),
       enableSorting: false,
@@ -838,7 +1038,7 @@ function createTaskColumns(): ColumnDef<Task>[] {
         <DataTableColumnHeader column={column} title="Task" />
       ),
       cell: ({ row }) => (
-        <div className="w-[80px] font-mono text-xs">{row.getValue("id")}</div>
+        <div className="w-20 font-mono text-xs">{row.getValue("id")}</div>
       ),
       enableSorting: false,
       enableHiding: false,
@@ -849,7 +1049,7 @@ function createTaskColumns(): ColumnDef<Task>[] {
         <DataTableColumnHeader column={column} title="Title" />
       ),
       cell: ({ row }) => {
-        const label = taskLabels.find((l) => l.value === row.original.label)
+        const label = taskLabels.find((l) => l.value === row.original.label);
         return (
           <div className="flex gap-2">
             {label && <Badge variant="outline">{label.label}</Badge>}
@@ -857,7 +1057,7 @@ function createTaskColumns(): ColumnDef<Task>[] {
               {row.getValue("title")}
             </span>
           </div>
-        )
+        );
       },
     },
     {
@@ -866,14 +1066,18 @@ function createTaskColumns(): ColumnDef<Task>[] {
         <DataTableColumnHeader column={column} title="Status" />
       ),
       cell: ({ row }) => {
-        const status = taskStatuses.find((s) => s.value === row.getValue("status"))
-        if (!status) return null
+        const status = taskStatuses.find(
+          (s) => s.value === row.getValue("status"),
+        );
+        if (!status) return null;
         return (
           <div className="flex w-[120px] items-center gap-2">
-            {status.icon && <status.icon className="text-muted-foreground size-4" />}
+            {status.icon && (
+              <status.icon className="text-muted-foreground size-4" />
+            )}
             <span>{status.label}</span>
           </div>
-        )
+        );
       },
       filterFn: (row, id, value) => value.includes(row.getValue(id)),
     },
@@ -883,14 +1087,18 @@ function createTaskColumns(): ColumnDef<Task>[] {
         <DataTableColumnHeader column={column} title="Priority" />
       ),
       cell: ({ row }) => {
-        const priority = taskPriorities.find((p) => p.value === row.getValue("priority"))
-        if (!priority) return null
+        const priority = taskPriorities.find(
+          (p) => p.value === row.getValue("priority"),
+        );
+        if (!priority) return null;
         return (
           <div className="flex items-center gap-2">
-            {priority.icon && <priority.icon className="text-muted-foreground size-4" />}
+            {priority.icon && (
+              <priority.icon className="text-muted-foreground size-4" />
+            )}
             <span>{priority.label}</span>
           </div>
-        )
+        );
       },
       filterFn: (row, id, value) => value.includes(row.getValue(id)),
     },
@@ -899,17 +1107,25 @@ function createTaskColumns(): ColumnDef<Task>[] {
       cell: ({ row }) => {
         const actions: RowAction[] = [
           { label: "Edit", onClick: () => console.log("Edit", row.original) },
-          { label: "Make a copy", onClick: () => console.log("Copy", row.original) },
-          { label: "Delete", onClick: () => console.log("Delete", row.original), variant: "destructive", separator: true },
-        ]
-        return <DataTableRowActions actions={actions} />
+          {
+            label: "Make a copy",
+            onClick: () => console.log("Copy", row.original),
+          },
+          {
+            label: "Delete",
+            onClick: () => console.log("Delete", row.original),
+            variant: "destructive",
+            separator: true,
+          },
+        ];
+        return <DataTableRowActions actions={actions} />;
       },
     },
-  ]
+  ];
 }
 
 function TasksToolbar({ table }: { table: TanstackTable<Task> }) {
-  const isFiltered = table.getState().columnFilters.length > 0
+  const isFiltered = table.getState().columnFilters.length > 0;
 
   return (
     <div className="flex items-center justify-between">
@@ -937,7 +1153,11 @@ function TasksToolbar({ table }: { table: TanstackTable<Task> }) {
           />
         )}
         {isFiltered && (
-          <Button variant="ghost" size="sm" onClick={() => table.resetColumnFilters()}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => table.resetColumnFilters()}
+          >
             Reset
             <XIcon />
           </Button>
@@ -945,11 +1165,11 @@ function TasksToolbar({ table }: { table: TanstackTable<Task> }) {
       </div>
       <DataTableViewOptions table={table} />
     </div>
-  )
+  );
 }
 
 function DataTableAdvancedExample() {
-  const columns = React.useMemo(() => createTaskColumns(), [])
+  const columns = React.useMemo(() => createTaskColumns(), []);
 
   return (
     <Example title="DataTable (Advanced)" containerClassName="md:col-span-2">
@@ -957,12 +1177,14 @@ function DataTableAdvancedExample() {
         <DataTable
           columns={columns}
           data={sampleTasks}
-          toolbar={(table) => <TasksToolbar table={table as TanstackTable<Task>} />}
-          defaultPageSize={5}
+          toolbar={(table) => (
+            <TasksToolbar table={table as TanstackTable<Task>} />
+          )}
+          defaultPageSize={10}
         />
       </div>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -976,7 +1198,7 @@ const invoiceDueData = [
   { period: "24 Jun - 30 Jun", overdue: 0, upcoming: 3600 },
   { period: "1 Jul - 7 Jul", overdue: 0, upcoming: 1100 },
   { period: "From 8 Jul", overdue: 0, upcoming: 800 },
-]
+];
 
 const stackedChartConfig = {
   overdue: {
@@ -987,7 +1209,7 @@ const stackedChartConfig = {
     label: "Upcoming",
     color: "var(--color-chart-1)",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 function StackedBarChartExample() {
   return (
@@ -1000,7 +1222,10 @@ function StackedBarChartExample() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ChartContainer config={stackedChartConfig} className="h-[300px] w-full">
+          <ChartContainer
+            config={stackedChartConfig}
+            className="h-[300px] w-full"
+          >
             <BarChart data={invoiceDueData} accessibilityLayer>
               <CartesianGrid vertical={false} />
               <XAxis
@@ -1015,16 +1240,9 @@ function StackedBarChartExample() {
                 axisLine={false}
                 tickFormatter={(value: number) => `${value / 1000}k`}
               />
-              <ChartTooltip
-                content={<ChartTooltipContent />}
-                cursor={false}
-              />
+              <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
               <ChartLegend content={<ChartLegendContent />} />
-              <Bar
-                dataKey="overdue"
-                stackId="a"
-                fill="var(--color-overdue)"
-              />
+              <Bar dataKey="overdue" stackId="a" fill="var(--color-overdue)" />
               <Bar
                 dataKey="upcoming"
                 stackId="a"
@@ -1035,7 +1253,7 @@ function StackedBarChartExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 // Grouped Bar Chart - Cash flow
@@ -1046,7 +1264,7 @@ const cashFlowData = [
   { month: "Apr", cashIn: 195000, cashOut: 112000 },
   { month: "May", cashIn: 78000, cashOut: 42000 },
   { month: "Jun", cashIn: 210000, cashOut: 158000 },
-]
+];
 
 const groupedChartConfig = {
   cashIn: {
@@ -1057,7 +1275,7 @@ const groupedChartConfig = {
     label: "Cash out",
     color: "var(--color-chart-1)",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 function GroupedBarChartExample() {
   return (
@@ -1070,7 +1288,10 @@ function GroupedBarChartExample() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ChartContainer config={groupedChartConfig} className="h-[300px] w-full">
+          <ChartContainer
+            config={groupedChartConfig}
+            className="h-[300px] w-full"
+          >
             <BarChart data={cashFlowData} accessibilityLayer>
               <CartesianGrid vertical={false} />
               <XAxis
@@ -1084,25 +1305,16 @@ function GroupedBarChartExample() {
                 axisLine={false}
                 tickFormatter={(value: number) => `${value / 1000}k`}
               />
-              <ChartTooltip
-                content={<ChartTooltipContent />}
-                cursor={false}
-              />
+              <ChartTooltip content={<ChartTooltipContent />} cursor={false} />
               <ChartLegend content={<ChartLegendContent />} />
-              <Bar
-                dataKey="cashIn"
-                fill="var(--color-cashIn)"
-              />
-              <Bar
-                dataKey="cashOut"
-                fill="var(--color-cashOut)"
-              />
+              <Bar dataKey="cashIn" fill="var(--color-cashIn)" />
+              <Bar dataKey="cashOut" fill="var(--color-cashOut)" />
             </BarChart>
           </ChartContainer>
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 function DatePickerExample() {
@@ -1110,7 +1322,7 @@ function DatePickerExample() {
     <Example title="Date Picker">
       <DatePicker />
     </Example>
-  )
+  );
 }
 
 function AvatarExample() {
@@ -1163,7 +1375,7 @@ function AvatarExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1184,7 +1396,8 @@ function TabsExample() {
             <CardHeader>
               <CardTitle>Account</CardTitle>
               <CardDescription>
-                Make changes to your account here. Click save when you&apos;re done.
+                Make changes to your account here. Click save when you&apos;re
+                done.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -1203,7 +1416,8 @@ function TabsExample() {
             <CardHeader>
               <CardTitle>Password</CardTitle>
               <CardDescription>
-                Change your password here. After saving, you&apos;ll be logged out.
+                Change your password here. After saving, you&apos;ll be logged
+                out.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -1231,14 +1445,15 @@ function TabsExample() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground text-sm">
-                Configure your notification preferences, privacy settings, and more.
+                Configure your notification preferences, privacy settings, and
+                more.
               </p>
             </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
     </Example>
-  )
+  );
 }
 
 function BreadcrumbExample() {
@@ -1260,7 +1475,7 @@ function BreadcrumbExample() {
         </BreadcrumbList>
       </Breadcrumb>
     </Example>
-  )
+  );
 }
 
 function PaginationExample() {
@@ -1269,29 +1484,33 @@ function PaginationExample() {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationPrevious href="#" />
+            <PaginationPrevious size="icon" href="#" />
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
+            <PaginationLink size="icon" href="#">
+              1
+            </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#" isActive>
+            <PaginationLink size="icon" href="#" isActive>
               2
             </PaginationLink>
           </PaginationItem>
           <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
+            <PaginationLink size="icon" href="#">
+              3
+            </PaginationLink>
           </PaginationItem>
           <PaginationItem>
             <PaginationEllipsis />
           </PaginationItem>
           <PaginationItem>
-            <PaginationNext href="#" />
+            <PaginationNext size="icon" href="#" />
           </PaginationItem>
         </PaginationContent>
       </Pagination>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1309,7 +1528,8 @@ function DialogExample() {
           <DialogHeader>
             <DialogTitle>Edit Profile</DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re done.
+              Make changes to your profile here. Click save when you&apos;re
+              done.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4 py-4">
@@ -1328,7 +1548,7 @@ function DialogExample() {
         </DialogContent>
       </Dialog>
     </Example>
-  )
+  );
 }
 
 function SheetExample() {
@@ -1344,7 +1564,8 @@ function SheetExample() {
             <SheetHeader>
               <SheetTitle>Edit Profile</SheetTitle>
               <SheetDescription>
-                Make changes to your profile here. Click save when you&apos;re done.
+                Make changes to your profile here. Click save when you&apos;re
+                done.
               </SheetDescription>
             </SheetHeader>
             <div className="space-y-4 p-4">
@@ -1364,14 +1585,14 @@ function SheetExample() {
         </Sheet>
       </div>
     </Example>
-  )
+  );
 }
 
 function DrawerExample() {
   return (
     <Example title="Drawer">
       <Drawer>
-        <DrawerTrigger>
+        <DrawerTrigger asChild>
           <Button variant="outline">Open Drawer</Button>
         </DrawerTrigger>
         <DrawerContent>
@@ -1395,16 +1616,16 @@ function DrawerExample() {
               </Button>
             </div>
           </div>
-          <DrawerFooter>
+          <DrawerFooter className="w-full max-w-64 mx-auto">
             <Button>Submit</Button>
-            <DrawerClose>
+            <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
             </DrawerClose>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </Example>
-  )
+  );
 }
 
 function PopoverExample() {
@@ -1414,7 +1635,7 @@ function PopoverExample() {
         <PopoverTrigger render={<Button variant="outline" />}>
           Open Popover
         </PopoverTrigger>
-        <PopoverContent>
+        <PopoverContent align="start">
           <PopoverHeader>
             <PopoverTitle>Dimensions</PopoverTitle>
             <PopoverDescription>
@@ -1434,7 +1655,7 @@ function PopoverExample() {
         </PopoverContent>
       </Popover>
     </Example>
-  )
+  );
 }
 
 function HoverCardExample() {
@@ -1464,7 +1685,7 @@ function HoverCardExample() {
         </HoverCardContent>
       </HoverCard>
     </Example>
-  )
+  );
 }
 
 function TooltipExample() {
@@ -1499,7 +1720,7 @@ function TooltipExample() {
         </Tooltip>
       </div>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1512,7 +1733,9 @@ function CheckboxRadioExample() {
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Notifications</CardTitle>
-          <CardDescription>Configure how you receive notifications.</CardDescription>
+          <CardDescription>
+            Configure how you receive notifications.
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="space-y-4">
@@ -1553,11 +1776,11 @@ function CheckboxRadioExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 function SwitchSliderExample() {
-  const [volume, setVolume] = React.useState<number[]>([50])
+  const [volume, setVolume] = React.useState<number[]>([50]);
 
   return (
     <Example title="Switch & Slider">
@@ -1582,9 +1805,7 @@ function SwitchSliderExample() {
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <Label>Dark Mode</Label>
-              <p className="text-muted-foreground text-xs">
-                Use dark theme
-              </p>
+              <p className="text-muted-foreground text-xs">Use dark theme</p>
             </div>
             <Switch defaultChecked />
           </div>
@@ -1598,7 +1819,9 @@ function SwitchSliderExample() {
             </div>
             <Slider
               value={volume}
-              onValueChange={(value) => setVolume(Array.isArray(value) ? value : [value])}
+              onValueChange={(value: number | readonly number[]) =>
+                setVolume(Array.isArray(value) ? [...value] : [value])
+              }
               max={100}
               step={1}
             />
@@ -1606,7 +1829,7 @@ function SwitchSliderExample() {
         </CardContent>
       </Card>
     </Example>
-  )
+  );
 }
 
 function InputOTPExample() {
@@ -1641,7 +1864,7 @@ function InputOTPExample() {
         </CardFooter>
       </Card>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1683,7 +1906,7 @@ function ToggleExample() {
         </div>
       </div>
     </Example>
-  )
+  );
 }
 
 function ButtonVariantsExample() {
@@ -1706,7 +1929,7 @@ function ButtonVariantsExample() {
         </Button>
       </div>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1726,23 +1949,24 @@ function AccordionExample() {
         <AccordionItem value="item-2">
           <AccordionTrigger>Is it styled?</AccordionTrigger>
           <AccordionContent>
-            Yes. It comes with default styles that match the other components&apos;
-            aesthetic.
+            Yes. It comes with default styles that match the other
+            components&apos; aesthetic.
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
           <AccordionTrigger>Is it animated?</AccordionTrigger>
           <AccordionContent>
-            Yes. It&apos;s animated by default, but you can disable it if you prefer.
+            Yes. It&apos;s animated by default, but you can disable it if you
+            prefer.
           </AccordionContent>
         </AccordionItem>
       </Accordion>
     </Example>
-  )
+  );
 }
 
 function CollapsibleExample() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Example title="Collapsible">
@@ -1752,10 +1976,10 @@ function CollapsibleExample() {
         className="w-full max-w-md space-y-2"
       >
         <div className="flex items-center justify-between space-x-4 rounded-md border px-4 py-2">
-          <h4 className="text-sm font-semibold">@peduarte starred 3 repositories</h4>
-          <CollapsibleTrigger
-            render={<Button variant="ghost" size="sm" />}
-          >
+          <h4 className="text-sm font-semibold">
+            @peduarte starred 3 repositories
+          </h4>
+          <CollapsibleTrigger render={<Button variant="ghost" size="sm" />}>
             <ChevronDownIcon
               className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
             />
@@ -1775,7 +1999,7 @@ function CollapsibleExample() {
         </CollapsibleContent>
       </Collapsible>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1803,16 +2027,16 @@ function AlertExample() {
         </Alert>
       </div>
     </Example>
-  )
+  );
 }
 
 function ProgressExample() {
-  const [progress, setProgress] = React.useState(13)
+  const [progress, setProgress] = React.useState(13);
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setProgress(66), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <Example title="Progress">
@@ -1822,7 +2046,7 @@ function ProgressExample() {
         <Progress value={80} />
       </div>
     </Example>
-  )
+  );
 }
 
 function SkeletonExample() {
@@ -1836,7 +2060,7 @@ function SkeletonExample() {
         </div>
       </div>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1845,8 +2069,8 @@ function SkeletonExample() {
 
 function ScrollAreaExample() {
   const tags = Array.from({ length: 50 }).map(
-    (_, i, a) => `v1.2.0-beta.${a.length - i}`
-  )
+    (_, i, a) => `v1.2.0-beta.${a.length - i}`,
+  );
 
   return (
     <Example title="ScrollArea">
@@ -1862,7 +2086,7 @@ function ScrollAreaExample() {
         </div>
       </ScrollArea>
     </Example>
-  )
+  );
 }
 
 function SeparatorExample() {
@@ -1885,7 +2109,7 @@ function SeparatorExample() {
         </div>
       </div>
     </Example>
-  )
+  );
 }
 
 // =============================================================================
@@ -1893,7 +2117,7 @@ function SeparatorExample() {
 // =============================================================================
 
 function CalendarExample() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
     <Example title="Calendar">
@@ -1904,5 +2128,5 @@ function CalendarExample() {
         className="rounded-md border"
       />
     </Example>
-  )
+  );
 }

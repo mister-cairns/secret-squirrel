@@ -3,8 +3,6 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --background: #ffffff;
   --foreground: #1e3145;
@@ -12,7 +10,7 @@
   --card-foreground: #1e3145;
   --popover: #ffffff;
   --popover-foreground: #1e3145;
-  --primary: #000000;
+  --primary: #1f68dd;
   --primary-foreground: #ffffff;
   --secondary: #f6f6f8;
   --secondary-foreground: #1e3145;
@@ -37,40 +35,6 @@
   --sidebar-accent: #f6f6f8;
   --sidebar-accent-foreground: #1e3145;
   --sidebar-border: #cfd1d5;
-  --sidebar-ring: #1c5dc5;
-}
-
-.dark {
-  --background: #1e3145;
-  --foreground: #ffffff;
-  --card: #081f33;
-  --card-foreground: #ffffff;
-  --popover: #1e3145;
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #081f33;
-  --secondary-foreground: #ffffff;
-  --muted: #081f33;
-  --muted-foreground: #cfd1d5;
-  --accent: #081f33;
-  --accent-foreground: #ffffff;
-  --destructive: #ef626d;
-  --border: #556070;
-  --input: #556070;
-  --ring: #1c5dc5;
-  --chart-1: #3982ed;
-  --chart-2: #1f68dd;
-  --chart-3: #1c5dc5;
-  --chart-4: #1950aa;
-  --chart-5: #184390;
-  --sidebar: #1e3145;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #71adfc;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #081f33;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #081f33;
   --sidebar-ring: #1c5dc5;
 }
 

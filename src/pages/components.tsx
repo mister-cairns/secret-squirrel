@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-import { ComponentExample } from "@/components/component-example"
-import { Button } from "@/components/ui/button"
-import { ArrowLeftIcon } from "lucide-react"
+import { ComponentExample } from "@/components/component-example";
+import { Button } from "@/components/ui/button";
+import { ArrowLeftIcon } from "lucide-react";
 
 export function ComponentsPage() {
   return (
@@ -10,7 +10,12 @@ export function ComponentsPage() {
       {/* Header */}
       <div className="border-b">
         <div className="mx-auto flex items-center gap-4 p-4">
-          <Button variant="ghost" size="sm" render={<Link to="/" />}>
+          <Button
+            variant="ghost"
+            size="sm"
+            render={<Link to="/" />}
+            nativeButton={false}
+          >
             <ArrowLeftIcon data-icon="inline-start" />
             Back
           </Button>
@@ -24,5 +29,5 @@ export function ComponentsPage() {
       {/* Component Examples */}
       <ComponentExample />
     </div>
-  )
+  );
 }

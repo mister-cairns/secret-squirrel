@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { LayoutGridIcon, RocketIcon } from "lucide-react"
-import { PROTOTYPE_NAME } from "@/lib/prototype"
+} from "@/components/ui/card";
+import { LayoutGridIcon, RocketIcon } from "lucide-react";
 
 export function HomePage() {
   return (
@@ -18,13 +17,15 @@ export function HomePage() {
         <div className="mb-8">
           <span className="text-6xl">🐿️</span>
         </div>
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">{PROTOTYPE_NAME}</h1>
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">
+          Prototype starter
+        </h1>
         <p className="text-muted-foreground mb-8 text-lg">
-          Prototyping starting point for PRD research.
+          Internal prototyping tool for PRD research. Build beautiful prototypes
+          with our design system.
         </p>
 
         <div className="grid gap-4 sm:grid-cols-3">
-
           <Card className="text-left">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -40,7 +41,11 @@ export function HomePage() {
                 This is where your custom prototype will be built. Start
                 creating your demo experience.
               </p>
-              <Button className="w-full" render={<Link to="/prototype" />}>
+              <Button
+                className="w-full"
+                render={<Link to="/prototype" />}
+                nativeButton={false}
+              >
                 View Demo
               </Button>
             </CardContent>
@@ -61,7 +66,11 @@ export function HomePage() {
                 Explore the full kitchen sink of shadcn/ui components with
                 examples and usage patterns.
               </p>
-              <Button className="w-full" render={<Link to="/components" />}>
+              <Button
+                className="w-full"
+                render={<Link to="/components" />}
+                nativeButton={false}
+              >
                 View Components
               </Button>
             </CardContent>
@@ -69,5 +78,5 @@ export function HomePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
